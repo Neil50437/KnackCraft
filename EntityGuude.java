@@ -13,11 +13,11 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.List;
 
-public class EntityCheeseMonster extends EntityMob
+public class EntityGuude extends EntityMob
 {
     private int angerLevel = 0;
     private int randomSoundDelay = 0;
-    public EntityCheeseMonster(World par1World)
+    public EntityGuude(World par1World)
     {
         super(par1World);
         this.texture = "test.png";
@@ -103,9 +103,9 @@ public class EntityCheeseMonster extends EntityMob
                 {
                     Entity entity1 = (Entity)list.get(j);
 
-                    if (entity1 instanceof EntityCheeseMonster)
+                    if (entity1 instanceof EntityGuude)
                     {
-                        EntityCheeseMonster entityCheeseMonstere = (EntityCheeseMonster)entity1;
+                        EntityGuude entityCheeseMonstere = (EntityGuude)entity1;
                         entityCheeseMonstere.becomeAngryAt(entity);
                     }
                 }

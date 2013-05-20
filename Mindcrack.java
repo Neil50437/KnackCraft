@@ -19,7 +19,7 @@ import net.minecraft.item.ItemStack;
 
 @Mod( modid = Refrence.MOD_ID, name = Refrence.MOD_NAME, version = Refrence.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
-public class Pasta
+public class Mindcrack
 {
     public static final String modid = "pasta";
 
@@ -38,23 +38,23 @@ public class Pasta
     @Init
     public void Init(FMLInitializationEvent event)
     {
-        EntityRegistry.registerModEntity(EntityCheeseMonster.class, "Cheese Monster", 1, this, 80, 3, true);
+        EntityRegistry.registerModEntity(EntityGuude.class, "Guude", 1, this, 80, 3, true);
 
 
-        LanguageRegistry.instance().addStringLocalization("entity.CheeseMonster_Pasta.CheeseMonster.name", "Cheese Monster");
+        LanguageRegistry.instance().addStringLocalization("entity.Guude_Pasta.Guude.name", "Guuder");
 
         CheeseBlock = new BlockCheese(254, Material.rock).setUnlocalizedName("CheeseBlock");
 
 
 
-        EntityRegistry.addSpawn(EntityCheeseMonster.class, 10, 4, 4, EnumCreatureType.monster);
+        EntityRegistry.addSpawn(EntityGuude.class, 10, 4, 4, EnumCreatureType.monster);
 
 
         GameRegistry.registerBlock(CheeseBlock, modid + CheeseBlock.getUnlocalizedName());
 
         LanguageRegistry.addName(CheeseBlock, "Cheese Block");
 
-        registerEntityEgg(EntityCheeseMonster.class, 0xEDF777, 000000);
+        registerEntityEgg(EntityGuude.class, 0xEDF777, 000000);
 
         CheeseItem = new ItemCheese(5000, 2, 1f, true).setUnlocalizedName("Cheese");
 
