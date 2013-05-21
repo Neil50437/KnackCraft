@@ -20,7 +20,7 @@ public class EntityGuude extends EntityMob
     public EntityGuude(World par1World)
     {
         super(par1World);
-        this.texture = "test.png";
+        this.texture ="mods/pasta/textures/mob/test.png";
         this.moveSpeed = 0.25F;
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIBreakDoor(this));
@@ -28,8 +28,6 @@ public class EntityGuude extends EntityMob
         this.tasks.addTask(4, new EntityAIWander(this, this.moveSpeed));
         this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, true));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16.0F, 0, true ));
-
-
 
     }
     public int getTotalArmorValue()
@@ -105,8 +103,8 @@ public class EntityGuude extends EntityMob
 
                     if (entity1 instanceof EntityGuude)
                     {
-                        EntityGuude entityCheeseMonstere = (EntityGuude)entity1;
-                        entityCheeseMonstere.becomeAngryAt(entity);
+                        EntityGuude entityGuude = (EntityGuude)entity1;
+                        entityGuude.becomeAngryAt(entity);
                     }
                 }
 
