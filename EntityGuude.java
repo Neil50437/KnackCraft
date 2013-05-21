@@ -20,7 +20,7 @@ public class EntityGuude extends EntityMob
     public EntityGuude(World par1World)
     {
         super(par1World);
-        this.texture ="mods/pasta/textures/mob/test.png";
+        this.texture = "mods/Pasta/textures/mob/test.png";
         this.moveSpeed = 0.25F;
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIBreakDoor(this));
@@ -171,10 +171,6 @@ public class EntityGuude extends EntityMob
     protected void addRandomArmor()
     {
         this.setCurrentItemOrArmor(0, new ItemStack(Item.record13));
-    }
-
-
-    {
 
 
 
