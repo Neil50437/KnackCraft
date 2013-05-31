@@ -65,11 +65,7 @@ public class Mindcrack
 
         LanguageRegistry.addName(CheeseItem, "Cheese");
 
-        int Xcoord1 = blockX + random.nextInt(16);
-        int Ycoord1 = random.nextInt(80);
-        int Zcoord1 = blockZ + random.nextInt(16);
-
-        (new WorldgeneratorWell()).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+        GameRegistry.registerWorldGenerator(new WorldgeneratorWell());
 
 
 

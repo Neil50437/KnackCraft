@@ -1,33 +1,26 @@
 import cpw.mods.fml.common.IWorldGenerator;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
+
 import java.util.Random;
 
-import net.minecraft.src.IChunkProvider;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldGenMinable;
 
-
-
-public class WorldgeneratorWell implements IWorldGenerator
-
-
+class WorldgeneratorWellGenerator implements IWorldGenerator
 {
-  public void generate(Random random, int chunkX, int chunkZ, WorldgeneratorWell world, IWorldGenerator chunkGenerator, IWorldGenerator chunkProvider)
-
-
+    @Override
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
     {
-           private void generateSurface(World world, Random random, int blockX, int blockZ)
-           {
-               int Xcoord = blockX + random.nextInt(16);
-               int Ycoord = random.nextInt(60);
-               int Zcoord = blockZ + random.nextInt(16);
+        chunkX = chunkX << 4;
+        chunkZ = chunkZ << 4;
 
-               (new WorldgeneratorWell(BlockCheese.blockID, 254)).generate(world, random, Xcoord, Ycoord, Zcoord);
-           }
+        if (!world.provider.isHellWorld)
+        {
+            int x, y, z;
+            x = chunkX + random.nextInt(16);
+            z = chunkZ + random.nextInt(16);
+            y = 64 + random.nextInt(72);
 
-        ClassCastException: generate(Random random,  chunkX*16, chunkZ*16);
+            // set block in world
+        }
     }
-
 }
-
-
-
