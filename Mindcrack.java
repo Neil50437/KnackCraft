@@ -45,20 +45,22 @@ public class Mindcrack
     {
         EntityRegistry.registerModEntity(EntityGuude.class, "Guude", 1, this, 80, 3, true);
 
-
-
-
-        CheeseBlock = new BlockCheese(254, Material.rock).setUnlocalizedName("CheeseBlock");
-
+        EntityRegistry.registerModEntity(EntityVinatageBeef.class, "VinatageBeef", 1, this, 80, 3, true);
 
         EntityRegistry.addSpawn(EntityGuude.class, 1, 0, 1, EnumCreatureType.monster,  BiomeGenBase.plains);
 
+        EntityRegistry.addSpawn(EntityVinatageBeef.class, 1, 0, 1, EnumCreatureType.monster,  BiomeGenBase.desert);
+
         LanguageRegistry.instance().addStringLocalization("entity.Minecraft.Guude.name", "Guude");
+
+        LanguageRegistry.instance().addStringLocalization("entity.Minecraft.VinatageBeed.name", "VinatgeBeef");
 
         registerEntityEgg(EntityGuude.class, 0x4DF, 0x4DF);
 
+        registerEntityEgg(EntityVinatageBeef.class, 0x4DF, 0x4DF);
 
 
+        CheeseBlock = new BlockCheese(254, Material.rock).setUnlocalizedName("CheeseBlock");
 
         GameRegistry.registerBlock(CheeseBlock, modid + CheeseBlock.getUnlocalizedName());
 
@@ -96,7 +98,16 @@ public class Mindcrack
                   'C', CheeseItem
         });
     }
-
+    
+    private void languageRegisters() {
+    	GameRegistry.registerItem(CheeseItem, "Cheese");
+        
+    }   
+    
+    private void gameRegisters() {
+    	LanguageRegistry.addName(CheeseItem, "Cheese");
+        
+    }
 
     public static int getUniqueEntityId()
         {
