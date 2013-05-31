@@ -25,7 +25,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Mindcrack
 {
-    public static final String modid = "pasta";
+    public static final String modid = "Refrence.MOD_ID";
 
     public static Block CheeseBlock;
 
@@ -46,12 +46,17 @@ public class Mindcrack
         EntityRegistry.registerModEntity(EntityGuude.class, "Guude", 1, this, 80, 3, true);
 
 
-        LanguageRegistry.instance().addStringLocalization("entity.Guude_Pasta.Guude.name", "Guude");
+
 
         CheeseBlock = new BlockCheese(254, Material.rock).setUnlocalizedName("CheeseBlock");
 
 
-        EntityRegistry.addSpawn(EntityGuude.class, 1, 0, 1, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.desert, BiomeGenBase.plains);
+        EntityRegistry.addSpawn(EntityGuude.class, 1, 0, 1, EnumCreatureType.monster,  BiomeGenBase.plains);
+
+        LanguageRegistry.instance().addStringLocalization("entity.Minecraft.Guude.name", "Guude");
+
+        registerEntityEgg(EntityGuude.class, 0x4DF, 0x4DF);
+
 
 
 
@@ -59,13 +64,13 @@ public class Mindcrack
 
         LanguageRegistry.addName(CheeseBlock, "Cheese Block");
 
-        registerEntityEgg(EntityGuude.class, 0xEDF777, 000000);
+
 
         CheeseItem = new ItemCheese(5000, 2, 1f, true).setUnlocalizedName("Cheese");
 
         LanguageRegistry.addName(CheeseItem, "Cheese");
 
-        GameRegistry.registerWorldGenerator(new WorldgeneratorWell());
+
 
 
 
