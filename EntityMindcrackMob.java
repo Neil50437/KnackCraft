@@ -160,7 +160,7 @@ public abstract class EntityMindcrackMob extends EntityCreature
      */
     public float getBlockPathWeight(int par1, int par2, int par3)
     {
-        return 0.5F - this.worldObj.getLightBrightness(par1, par2, par3);
+        return 1F - this.worldObj.getLightBrightness(par1, par2, par3);
     }
 
     /**
@@ -197,7 +197,7 @@ public abstract class EntityMindcrackMob extends EntityCreature
      */
     public boolean getCanSpawnHere()
     {
-        return this.isValidLightLevel() && super.getCanSpawnHere();
+        return super.getCanSpawnHere();
     }
 
     /**

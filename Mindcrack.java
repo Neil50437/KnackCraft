@@ -15,9 +15,13 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
+
+
 
 
 @Mod( modid = Refrence.MOD_ID, name = Refrence.MOD_NAME, version = Refrence.VERSION)
+
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Mindcrack
 {
@@ -26,6 +30,7 @@ public class Mindcrack
     public static Block CheeseBlock;
 
     public static Item CheeseItem;
+
 
 
     @SidedProxy(clientSide="ClientProxy", serverSide="CommonProxy")
@@ -41,13 +46,13 @@ public class Mindcrack
         EntityRegistry.registerModEntity(EntityGuude.class, "Guude", 1, this, 80, 3, true);
 
 
-        LanguageRegistry.instance().addStringLocalization("entity.Guude_Pasta.Guude.name", "Guuder");
+        LanguageRegistry.instance().addStringLocalization("entity.Guude_Pasta.Guude.name", "Guude");
 
         CheeseBlock = new BlockCheese(254, Material.rock).setUnlocalizedName("CheeseBlock");
 
 
+        EntityRegistry.addSpawn(EntityGuude.class, 1, 0, 1, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.desert, BiomeGenBase.plains);
 
-        EntityRegistry.addSpawn(EntityGuude.class, 10, 4, 4, EnumCreatureType.monster);
 
 
         GameRegistry.registerBlock(CheeseBlock, modid + CheeseBlock.getUnlocalizedName());
@@ -59,6 +64,17 @@ public class Mindcrack
         CheeseItem = new ItemCheese(5000, 2, 1f, true).setUnlocalizedName("Cheese");
 
         LanguageRegistry.addName(CheeseItem, "Cheese");
+
+        int Xcoord1 = blockX + random.nextInt(16);
+        int Ycoord1 = random.nextInt(80);
+        int Zcoord1 = blockZ + random.nextInt(16);
+
+        (new WorldgeneratorWell()).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+
+
+
+
+
 
 
 
