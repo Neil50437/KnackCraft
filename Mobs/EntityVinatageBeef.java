@@ -1,3 +1,5 @@
+package Mobs;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -12,14 +14,15 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class EntityGuude extends EntityMindcrackMob
+public class EntityVinatageBeef extends EntityMindcrackMob
 {
     private int angerLevel = 0;
     private int randomSoundDelay = 0;
-    public EntityGuude(World par1World)
+    public EntityVinatageBeef(World par1World)
     {
+
         super(par1World);
-        this.texture = "/mods/Pasta/textures/mob/test.png";
+        this.texture = "/mods/Pasta/textures/mob/VintageBeef.png";
         this.moveSpeed = 0.25F;
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIBreakDoor(this));
@@ -31,18 +34,18 @@ public class EntityGuude extends EntityMindcrackMob
     }
     public int getTotalArmorValue()
     {
-         return 10;
+        return 10;
     }public void onUpdate()
-{
-    this.moveSpeed = this.entityToAttack != null ? 0.95F : 0.5F;
-
-    if (this.randomSoundDelay > 0 && --this.randomSoundDelay == 0)
     {
-        this.playSound("mob.zombiepig.zpigangry", this.getSoundVolume() * 2.0F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 1.8F);
-    }
+        this.moveSpeed = this.entityToAttack != null ? 0.95F : 0.5F;
 
-    super.onUpdate();
-}
+        if (this.randomSoundDelay > 0 && --this.randomSoundDelay == 0)
+        {
+            this.playSound("mob.zombiepig.zpigangry", this.getSoundVolume() * 2.0F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+        }
+
+        super.onUpdate();
+    }
 
     @SideOnly(Side.CLIENT)
 
@@ -100,10 +103,10 @@ public class EntityGuude extends EntityMindcrackMob
                 {
                     Entity entity1 = (Entity)list.get(j);
 
-                    if (entity1 instanceof EntityGuude)
+                    if (entity1 instanceof EntityVinatageBeef)
                     {
-                        EntityGuude entityGuude = (EntityGuude)entity1;
-                        entityGuude.becomeAngryAt(entity);
+                        EntityVinatageBeef entityVinatageBeef = (EntityVinatageBeef)entity1;
+                        entityVinatageBeef.becomeAngryAt(entity);
                     }
                 }
 
@@ -143,7 +146,7 @@ public class EntityGuude extends EntityMindcrackMob
     }
     public EnumCreatureAttribute getCreatureAttribute()
     {
-         return EnumCreatureAttribute.UNDEAD;
+        return EnumCreatureAttribute.UNDEAD;
     }
 
     public boolean interact(EntityPlayer par1EntityPlayer)
@@ -176,6 +179,10 @@ public class EntityGuude extends EntityMindcrackMob
 
     }
 }
+
+
+
+
 
 
 

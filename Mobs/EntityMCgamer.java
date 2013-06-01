@@ -1,3 +1,8 @@
+package Mobs;
+
+
+
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -12,15 +17,14 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class EntityVinatageBeef extends EntityMindcrackMob
+public class EntityMCgamer extends EntityMindcrackMob
 {
     private int angerLevel = 0;
     private int randomSoundDelay = 0;
-    public EntityVinatageBeef(World par1World)
+    public EntityMCgamer(World par1World)
     {
-
         super(par1World);
-        this.texture = "/mods/Pasta/textures/mob/VintageBeef.png";
+        this.texture = "";
         this.moveSpeed = 0.25F;
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIBreakDoor(this));
@@ -28,21 +32,22 @@ public class EntityVinatageBeef extends EntityMindcrackMob
         this.tasks.addTask(4, new EntityAIWander(this, this.moveSpeed));
         this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, true));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16.0F, 0, true ));
+
     }
     public int getTotalArmorValue()
     {
         return 10;
     }public void onUpdate()
+{
+    this.moveSpeed = this.entityToAttack != null ? 0.95F : 0.5F;
+
+    if (this.randomSoundDelay > 0 && --this.randomSoundDelay == 0)
     {
-        this.moveSpeed = this.entityToAttack != null ? 0.95F : 0.5F;
-
-        if (this.randomSoundDelay > 0 && --this.randomSoundDelay == 0)
-        {
-            this.playSound("mob.zombiepig.zpigangry", this.getSoundVolume() * 2.0F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 1.8F);
-        }
-
-        super.onUpdate();
+        this.playSound("mob.zombiepig.zpigangry", this.getSoundVolume() * 2.0F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 1.8F);
     }
+
+    super.onUpdate();
+}
 
     @SideOnly(Side.CLIENT)
 
@@ -100,10 +105,10 @@ public class EntityVinatageBeef extends EntityMindcrackMob
                 {
                     Entity entity1 = (Entity)list.get(j);
 
-                    if (entity1 instanceof EntityVinatageBeef)
+                    if (entity1 instanceof EntityMCgamer)
                     {
-                        EntityVinatageBeef entityVinatageBeef = (EntityVinatageBeef)entity1;
-                        entityVinatageBeef.becomeAngryAt(entity);
+                        EntityMCgamer entityMCgamer = (EntityMCgamer)entity1;
+                        entityMCgamer.becomeAngryAt(entity);
                     }
                 }
 
@@ -161,7 +166,7 @@ public class EntityVinatageBeef extends EntityMindcrackMob
      */
     protected int getDropItemId()
     {
-        return Item.record13.itemID;
+        return Item.dyePowder.itemID;
     }
 
     /**
@@ -176,9 +181,6 @@ public class EntityVinatageBeef extends EntityMindcrackMob
 
     }
 }
-
-
-
 
 
 

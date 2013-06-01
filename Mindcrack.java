@@ -1,3 +1,8 @@
+import Blocks.BlockCheese;
+import Items.ItemCheese;
+import Mobs.EntityGuude;
+import Mobs.EntityMCgamer;
+import Mobs.EntityVinatageBeef;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.SidedProxy;
@@ -47,17 +52,26 @@ public class Mindcrack
 
         EntityRegistry.registerModEntity(EntityVinatageBeef.class, "VinatageBeef", 1, this, 80, 3, true);
 
-        EntityRegistry.addSpawn(EntityGuude.class, 1, 0, 1, EnumCreatureType.monster,  BiomeGenBase.plains);
+        EntityRegistry.addSpawn(EntityGuude.class, 1, 0, 1, EnumCreatureType.monster, BiomeGenBase.plains);
 
         EntityRegistry.addSpawn(EntityVinatageBeef.class, 1, 0, 1, EnumCreatureType.monster,  BiomeGenBase.desert);
 
-        LanguageRegistry.instance().addStringLocalization("entity.Minecraft.Guude.name", "Guude");
+        EntityRegistry.addSpawn(EntityMCgamer.class, 1, 0, 1, EnumCreatureType.monster,  BiomeGenBase.extremeHills);
 
-        LanguageRegistry.instance().addStringLocalization("entity.Minecraft.VinatageBeed.name", "VinatgeBeef");
+
+
+        LanguageRegistry.instance().addStringLocalization("entity.Mindcrack.VinatageBeef.name", "Vinatage Beef");
+
+        LanguageRegistry.instance().addStringLocalization("entity.Mindcrack.Guude.name", "Guude");
+
+        LanguageRegistry.instance().addStringLocalization("entity.Mindcrack.MCgamer.name", "mcgamer");
+
 
         registerEntityEgg(EntityGuude.class, 0x4DF, 0x4DF);
 
         registerEntityEgg(EntityVinatageBeef.class, 0x4DF, 0x4DF);
+
+        registerEntityEgg(EntityMCgamer.class, 0x4DF, 0x4DF);
 
 
         CheeseBlock = new BlockCheese(254, Material.rock).setUnlocalizedName("CheeseBlock");

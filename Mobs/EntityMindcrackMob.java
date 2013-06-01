@@ -1,4 +1,4 @@
-
+package Mobs;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentThorns;
