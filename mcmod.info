@@ -1,11 +1,11 @@
 [
   {
-    "modid": "Mindcrack",
-    "name": "Mindcrack",
+    "modid": "KnackCraft",
+    "name": "KnackCraft",
     "version": "0.0.1",
-    "description": "Adds the Mindcrackers to your game!",
+    "description": "More stuff!!",
     "authors": [ "niel" ],
-    "credits": "#minecraftforge, russjr08",
+    "credits": "#minecraftforge, russjr08, Cyntain-textures",
     "url": "https://github.com/Neil5043/Mindcrack-Mod"
   }
 ]

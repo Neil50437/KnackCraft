@@ -1,6 +1,4 @@
-public class CommonProxy{
+public class CommonProxy
 
-
-
+{
 }
-
