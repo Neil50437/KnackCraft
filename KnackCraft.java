@@ -3,16 +3,20 @@ import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import lib.Refrence;
+import mods.Pasta.textures.EntityCharKarb;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-
-
+import net.minecraft.world.biome.BiomeGenBase;
 
 
 @Mod( modid = Refrence.MOD_ID, name = Refrence.MOD_NAME, version = Refrence.VERSION)
@@ -41,6 +45,17 @@ public class KnackCraft
     @Init
     public void Init(FMLInitializationEvent event)
     {
+
+         //entities
+
+        EntityRegistry.registerModEntity(EntityCharKarb.class, "CharKarb", 1, this, 80, 3, true);
+
+        EntityRegistry.addSpawn(EntityCharKarb.class, 1, 0, 1, EnumCreatureType.creature, BiomeGenBase.hell);
+
+        LanguageRegistry.instance().addStringLocalization("entity.KackCraft.CharKarb.name", "CharKarb");
+
+        registerEntityEgg(EntityCharKarb.class, 0x4DF, 0x4DF);
+
 
 
          //Blocks
@@ -77,6 +92,9 @@ public class KnackCraft
 
 
         GameRegistry.addSmelting(BlockCompressedCoal.blockID, new ItemStack(BlockCompactCoal), 0.1f);
+
+
+
 
 
 
@@ -128,4 +146,26 @@ public class KnackCraft
                 'C', BlockCompactCoal
         });
     }
+
+
+
+    public static int getUniqueEntityId()
+    {
+        do
+        {
+            startEntityId++;        //I MADE IT HAPPY :D
+        }
+        while(EntityList.getStringFromID(startEntityId) != null);
+
+
+        return startEntityId;
+    }
+
+    public static void registerEntityEgg(Class <? extends Entity> entity, int primaryColor, int secondaryColor)
+    {
+        int id = getUniqueEntityId();
+        EntityList.IDtoClassMapping.put(id, entity);
+        EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
+    }
+
 }
