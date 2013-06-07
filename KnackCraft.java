@@ -1,3 +1,4 @@
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.SidedProxy;
@@ -7,9 +8,9 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import lib.Refrence;
-import mods.Pasta.textures.EntityCharKarb;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
@@ -17,6 +18,8 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
+
+
 
 
 @Mod( modid = Refrence.MOD_ID, name = Refrence.MOD_NAME, version = Refrence.VERSION)
@@ -55,6 +58,9 @@ public class KnackCraft
         LanguageRegistry.instance().addStringLocalization("entity.KackCraft.CharKarb.name", "CharKarb");
 
         registerEntityEgg(EntityCharKarb.class, 0x4DF, 0x4DF);
+
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityCharKarb.class, new RenderLiving(new ModelCharKarb(), 0f));
 
 
 

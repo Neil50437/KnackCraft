@@ -1,5 +1,3 @@
-package mods.Pasta.textures;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -23,7 +21,7 @@ public class EntityCharKarb extends EntityMob
     public EntityCharKarb(World par1World)
     {
         super(par1World);
-        this.texture = "/mob/fire.png";
+        this.texture = "/mods/Pasta/textures/mob/Etho.png";
         this.isImmuneToFire = true;
         this.experienceValue = 10;
     }
@@ -115,9 +113,7 @@ public class EntityCharKarb extends EntityMob
         }
 
         for (int i = 0; i < 2; ++i)
-        {
-            this.worldObj.spawnParticle("largesmoke", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, 0.0D, 0.0D, 0.0D);
-        }
+
 
         super.onLivingUpdate();
     }
